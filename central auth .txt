@@ -1,0 +1,44 @@
+vastool -u m6046943@mgmt.tlrg.com attrs -g m-west-mg-c779gnj member
+getent group restgroup
+
+grep -i allow /etc/sssd/sssd.conf    -> to check the  which rest groups allowed for server
+
+c813aqe:~ # grep -i allow /etc/sssd/sssd.conf
+simple_allow_groups = REST-Unix-ServiceNowDiscovery,REST-Unix-Reconciliation,REST-Unix-UNIX-SUPPORT-TR,REST-Unix-APP-L2-WL-CHARGES,REST-Unix-APP-L2-DEPLOY,REST-Unix-MIDDLEWARE-TR
+c813aqe:~ #
+
+/infra_unixsvcs/unix-support/bin/cauth -g REST-Unix-DATA-SERVICES-TEAM2   -> to check which users are part of reset group
+
+<m6046943@bacon(infrmgmt-04):~> /infra_unixsvcs/unix-support/bin/cauth -g REST-Unix-APP-L2-DEPLOY
+Enter password for account "m6046943": ****************
+
+ERROR: Bad output.  Verify group name.
+
+<m6046943@bacon(infrmgmt-04):~> 
+<m6046943@bacon(infrmgmt-04):~> /infra_unixsvcs/unix-support/bin/cauth -u m6046943   -> to check user is part of on which rest groups 
+Enter password for account "m6046943": ****************
+User name: Gopireddy Venkateswarlu
+Member of these REST groups:
+    REST-Unix-Unix-Support
+    REST-Unix-Unix-Support-Custom
+    REST-Unix-Unix-Support-TR
+Member of these non-REST groups:
+    -DG-MGMT-Users
+    m-avmcis-unix.g
+    m-avmcps-unix.g
+    M-Sailpoint-PAM-Vaulted
+    M-UNIX
+    m-unix-cis
+    m-unix-cps
+    m-west-rg-clear-secure-iem
+    m-west-rg-infra-unix-login
+    m-west-rg-tlrts-unix
+    m-west-rg-unixgroup-managed
+    M-WEST-RG-UNIX-SUPPORT
+    M-West-TLRCorp-UnixAdmins
+    M-West-TLRCorp-UnixUserAdm
+    M-West-UnixGroupOUAdmin
+    p-west-hac-unix-legal-cust
+    u-west-infra-unix-login
+
+<m6046943@bacon(infrmgmt-04):~>
