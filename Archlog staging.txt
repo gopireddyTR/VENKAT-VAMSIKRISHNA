@@ -1,0 +1,26 @@
+------------------------------------------------------------------------
+archlog CHs
+ 
+staging::
+create 2 files under working dir
+1.hostlist
+2.mountdata (servername,mountpoint,oldpath,newpath from excel sheet)
+ 
+Steps::
+cd /tools/infra/temp60days/TR/CHG1527245
+ 
+cat /tools/infra/temp60days/TR/CHG1527245/hostlist |dbash -t 100 -f "cp /etc/fstab /etc/fstab.CHG1527245"
+ 
+ 
+Step #3
+ 
+cat /tools/infra/temp60days/TR/CHG1527245/hostlist |dbash -t 100 -c "/tools/infra/bin/mountscript_arch_mig.sh  CHG1527245 temp_mount"
+ 
+Step #5
+ 
+cat /tools/infra/temp60days/TR/CHG1527245/hostlist |dbash -t 100 -c "/tools/infra/bin/mountscript_arch_mig.sh  CHG1527245 perm_mount"
+ 
+Step #7
+ 
+cat /tools/infra/temp60days/TR/CHG1527245/hostlist |dbash -t 100 -c "/tools/infra/bin/mountscript_arch_mig.sh  CHG1527245 old_umount"
+--------------------------------------------------------------------------------------------

@@ -1,0 +1,1 @@
+ansible-playbook -i /tools/infra/temp60days/TR/CHG1338952/hosts /infra_unixsvcs/unix-support/bin/autofs_playbook.yaml

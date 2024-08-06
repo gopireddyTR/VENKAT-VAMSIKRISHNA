@@ -1,0 +1,23 @@
+(root@c420vvh):/# lsuser -a unsuccessful_login_count sapepm
+sapepm unsuccessful_login_count=10
+(root@c420vvh):/#
+
+
+
+
+
+Fist become root:
+  su - root
+  lsuser -a unsuccessful_login_count userid 
+  
+reset unsuccessful login count:
+  chsec -f /etc/security/lastlog -a unsuccessful_login_count=0 -s userid
+  
+unlock account:
+  chuser account_locked=false userid
+  
+to lock an AIX account:
+  chuser account_locked=true userid
+  
+check if locked:
+  lsuser userid
